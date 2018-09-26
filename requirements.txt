@@ -1,0 +1,7 @@
+ballet>=0.4.1
+funcy
+matplotlib
+numpy
+seaborn
+sklearn
+sklearn_pandas
