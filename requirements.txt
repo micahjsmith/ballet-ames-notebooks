@@ -1,4 +1,4 @@
-ballet>=0.4.1
+ballet==0.4.1
 funcy
 matplotlib
 numpy
