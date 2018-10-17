@@ -1,4 +1,4 @@
-# ballet-ames-demo
+# ballet-ames-notebooks
 
 Demo of ballet framework on Ames housing price dataset.
 
