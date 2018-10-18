@@ -9,10 +9,11 @@ import sklearn
 
 features = []
 
+input = ['MS SubClass']
 def add_missing_0_to_mssubclass(df):
     """Zeros in 020-090 get cut off. This function prepends them back."""
 
-    return df['MSSubClass'].apply(
+    return df['MS SubClass'].apply(
         lambda x: '0' + str(x) if len(str(x)) == 2 else x)
 transformer = ballet.eng.SimpleFunctionTransformer(func=add_missing_0_to_mssubclass)
 feature = Feature(input=input, transformer=transformer)
@@ -21,14 +22,11 @@ features.append(feature)
 input = ['Enclosed Porch', '3Ssn Porch', 'Open Porch SF']
 def calc_porch_type(df):
     # Porch features
-    porch_type = df['Total Porch Area'].apply(
-        lambda x: 'Missing' if x == 0 else 'Multiple')
-    porch_type[(df['Total Porch Area'] == df['Enclosed Porch'])
-               & (df['Enclosed Porch'] > 0)] = 'Enclosed'
-    porch_type[(df['Total Porch Area'] == df['3Ssn Porch'])
-               & (df['3Ssn Porch'] > 0)] = '3Ssn'
-    porch_type[(df['Total Porch Area'] == df['Open Porch SF'])
-               & (df['Open Porch SF'] > 0)] = 'Open'
+    total_porch_area = df.apply(np.sum, axis=1)
+    porch_type = pd.Series('Missing', index=df.index)
+    porch_type[(total_porch_area == df['Enclosed Porch']) & (df['Enclosed Porch'] > 0) ] = 'Enclosed'
+    porch_type[(total_porch_area == df['3Ssn Porch']) & (df['3Ssn Porch'] > 0) ] = '3Ssn'
+    porch_type[(total_porch_area == df['Open Porch SF']) & (df['Open Porch SF'] > 0) ] = 'Open'
     return porch_type
 transformer = [ballet.eng.SimpleFunctionTransformer(func=calc_porch_type), sklearn.preprocessing.OneHotEncoder()]
 porch = Feature(input=input, transformer=transformer, name='Porch Type Calculation')
@@ -44,7 +42,10 @@ features.append(total_area)
 input = ['Total Bsmt SF', '1st Flr SF', '2nd Flr SF']
 def add_areas(df):
     return df['Total Bsmt SF'] + df['1st Flr SF'] + df['2nd Flr SF']
-transformer = ballet.eng.SimpleFunctionTransformer(func=add_areas)
+transformer = [
+    ballet.eng.SimpleFunctionTransformer(func=add_areas),
+    ballet.eng.NullFiller(),
+]
 total_area = Feature(input=input, transformer=transformer, name='Total Area Calculation')
 features.append(total_area)
 
