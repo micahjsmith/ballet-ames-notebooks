@@ -1,4 +1,4 @@
-ballet==0.4.1
+-e git+git://github.com/HDI-Project/ballet.git#egg=ballet
 funcy
 matplotlib
 numpy
