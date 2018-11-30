@@ -10,23 +10,19 @@ import sklearn
 # reset the feature set
 features = []
 
-# LotFrontage : Since the area of each street connected to the house property most
-# likely have a similar area to other houses in its neighborhood , we can fill in
-# missing values by the median LotFrontage of the neighborhood.
-
 input = ['Lot Frontage', 'Neighborhood']
 def impute_lot_frontage(df):
     frontage = df['Lot Frontage']
     return frontage.fillna(frontage.median())
 transformer = [
     ballet.eng.GroupedFunctionTransformer(func=impute_lot_frontage, groupby_kwargs={'by': 'Neighborhood'}),
-    ballet.eng.SimpleFunctionTransformer(lambda s: s.fillna(s.median()))
+    ballet.eng.SimpleFunctionTransformer(lambda s: s.fillna(s.median()))  
 ]
 frontage_feature = Feature(input=input, transformer=transformer,  name='Lot Frontage Fill')
 features.append(frontage_feature)
 
-# PoolQC : data description says NA means "No Pool".
-# That make sense, given the huge ratio of missing value (+99%)
+# PoolQC : data description says NA means "No Pool". 
+# That make sense, given the huge ratio of missing value (+99%) 
 # and majority of houses have no Pool at all in general.
 input = ['Pool QC']
 transformer = [ballet.eng.missing.NullFiller(replacement="None", isnull=pd.isnull), sklearn.preprocessing.OneHotEncoder()]
@@ -48,32 +44,32 @@ transformer = [ballet.eng.missing.NullFiller(replacement="None", isnull=pd.isnul
 misc_fill = Feature(input=input, transformer=transformer, name='Fence Misc Fill')
 features.append(misc_fill)
 
-# PoolQC : data description says NA means "No Pool".
-# That make sense, given the huge ratio of missing value (+99%)
+# PoolQC : data description says NA means "No Pool". 
+# That make sense, given the huge ratio of missing value (+99%) 
 # and majority of houses have no Pool at all in general.
 input = ['Garage Type']
 transformer = [ballet.eng.missing.NullFiller(replacement="None", isnull=pd.isnull), sklearn.preprocessing.OneHotEncoder()]
 garage_none_fill = Feature(input=input, transformer=transformer, name='Garage Missing Fill None')
 features.append(garage_none_fill)
 
-# PoolQC : data description says NA means "No Pool".
-# That make sense, given the huge ratio of missing value (+99%)
+# PoolQC : data description says NA means "No Pool". 
+# That make sense, given the huge ratio of missing value (+99%) 
 # and majority of houses have no Pool at all in general.
 input = ['Garage Finish']
 transformer = [ballet.eng.missing.NullFiller(replacement="None", isnull=pd.isnull), sklearn.preprocessing.OneHotEncoder()]
 garage_none_fill = Feature(input=input, transformer=transformer, name='Garage Missing Fill None')
 features.append(garage_none_fill)
 
-# PoolQC : data description says NA means "No Pool".
-# That make sense, given the huge ratio of missing value (+99%)
+# PoolQC : data description says NA means "No Pool". 
+# That make sense, given the huge ratio of missing value (+99%) 
 # and majority of houses have no Pool at all in general.
 input = ['Garage Qual']
 transformer = [ballet.eng.missing.NullFiller(replacement="None", isnull=pd.isnull), sklearn.preprocessing.OneHotEncoder()]
 garage_none_fill = Feature(input=input, transformer=transformer, name='Garage Missing Fill None')
 features.append(garage_none_fill)
 
-# PoolQC : data description says NA means "No Pool".
-# That make sense, given the huge ratio of missing value (+99%)
+# PoolQC : data description says NA means "No Pool". 
+# That make sense, given the huge ratio of missing value (+99%) 
 # and majority of houses have no Pool at all in general.
 input = ['Garage Cond']
 transformer = [ballet.eng.missing.NullFiller(replacement="None", isnull=pd.isnull), sklearn.preprocessing.OneHotEncoder()]
@@ -150,7 +146,8 @@ features.append(fill)
 
 input = ['Total Bsmt SF', '1st Flr SF', '2nd Flr SF']
 def add_areas(df):
-    return df['Total Bsmt SF'] + df['1st Flr SF'] + df['2nd Flr SF']
+    total_sf = df['Total Bsmt SF'] + df['1st Flr SF'] + df['2nd Flr SF']
+    return total_sf.fillna(0)
 transformer = ballet.eng.SimpleFunctionTransformer(func=add_areas)
 total_area = Feature(input=input, transformer=transformer, name='Total Area Calculation')
 features.append(total_area)

@@ -11,17 +11,16 @@ features = []
 
 input = ['Total Bsmt SF', '1st Flr SF', '2nd Flr SF']
 def add_areas(df):
-    return df['Total Bsmt SF'] + df['1st Flr SF'] + df['2nd Flr SF']
-transformer = [
-    ballet.eng.SimpleFunctionTransformer(func=add_areas),
-    ballet.eng.NullFiller(),
-]
+    total_area = df['Total Bsmt SF'] + df['1st Flr SF'] + df['2nd Flr SF']
+    return total_area.fillna(0)
+transformer = ballet.eng.SimpleFunctionTransformer(func=add_areas)
 total_area = Feature(input=input, transformer=transformer, name='Total Area Calculation')
 features.append(total_area)
 
 input = ['Yr Sold', 'Year Remod/Add']
 def calc_age(df):
-    return df['Yr Sold'] - df['Year Remod/Add']
+    year = df['Yr Sold'] - df['Year Remod/Add']
+    return year.fillna(0)
 transformer = ballet.eng.SimpleFunctionTransformer(func=calc_age)
 age = Feature(input=input, transformer=transformer, name='Age')
 features.append(age)

@@ -159,7 +159,8 @@ features.append(factor)
 
 input = ['Total Bsmt SF', '1st Flr SF', '2nd Flr SF']
 def add_areas(df):
-    return df['Total Bsmt SF'] + df['1st Flr SF'] + df['2nd Flr SF']
+    total_areas = df['Total Bsmt SF'] + df['1st Flr SF'] + df['2nd Flr SF']
+    return total_areas.fillna(0)
 transformer = ballet.eng.SimpleFunctionTransformer(func=add_areas)
 total_area = Feature(input=input, transformer=transformer, name='Total Area Calculation')
 features.append(total_area)

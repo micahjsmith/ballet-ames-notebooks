@@ -126,7 +126,7 @@ def impute_lot_frontage(df):
     return frontage.fillna(frontage.median())
 transformer = [
     ballet.eng.GroupedFunctionTransformer(func=impute_lot_frontage, groupby_kwargs={'by': 'Neighborhood'}),
-    ballet.eng.SimpleFunctionTransformer(lambda s: s.fillna(s.median()))
+    ballet.eng.SimpleFunctionTransformer(lambda s: s.fillna(s.median()))  
 ]
 frontage_feature = Feature(input=input, transformer=transformer,  name='Lot Frontage Fill')
 features.append(frontage_feature)

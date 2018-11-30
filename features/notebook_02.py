@@ -77,8 +77,8 @@ transformer = [ballet.eng.missing.NullFiller(replacement="None", isnull=pd.isnul
 factor = Feature(input=input, transformer=transformer)
 features.append(factor)
 
-# PoolQC : data description says NA means "No Pool".
-# That make sense, given the huge ratio of missing value (+99%)
+# PoolQC : data description says NA means "No Pool". 
+# That make sense, given the huge ratio of missing value (+99%) 
 # and majority of houses have no Pool at all in general.
 input = ['Pool QC']
 transformer = [ballet.eng.missing.NullFiller(replacement="None", isnull=pd.isnull), sklearn.preprocessing.OneHotEncoder()]
@@ -101,13 +101,13 @@ misc_fill = Feature(input=input, transformer=transformer, name='Alley Misc Fill'
 features.append(misc_fill)
 
 input = ['Lot Frontage', 'Neighborhood']
+def neighborhood_null(df):
+    df['Neighborhood'].fillna('None')
+    return df
 def impute_lot_frontage(df):
     frontage = df['Lot Frontage']
     return frontage.fillna(frontage.median())
-transformer = [
-    ballet.eng.GroupedFunctionTransformer(func=impute_lot_frontage, groupby_kwargs={'by': 'Neighborhood'}),
-    ballet.eng.SimpleFunctionTransformer(lambda s: s.fillna(s.median()))
-]
+transformer = [ballet.eng.SimpleFunctionTransformer(func=neighborhood_null), ballet.eng.GroupedFunctionTransformer(func=impute_lot_frontage, groupby_kwargs={'by': 'Neighborhood'})]
 frontage_feature = Feature(input=input, transformer=transformer,  name='Lot Frontage Fill')
 features.append(frontage_feature)
 
@@ -140,6 +140,7 @@ input = ['Mas Vnr Type']
 transformer = [ballet.eng.missing.NullFiller(replacement="None", isnull=pd.isnull), sklearn.preprocessing.OneHotEncoder()]
 mason_fill = Feature(input=input, transformer=transformer, name='Mason Fill None')
 features.append(mason_fill)
+
 
 input = ['MS SubClass']
 transformer = [ballet.eng.missing.NullFiller(replacement="None", isnull=pd.isnull), sklearn.preprocessing.OneHotEncoder()]

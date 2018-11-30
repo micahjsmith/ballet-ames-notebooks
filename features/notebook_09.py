@@ -31,168 +31,168 @@ misc_fill = Feature(input=input, transformer=transformer)
 features.append(misc_fill)
 
 def has_qual(df):
-    return (df > 0) * 1
+    return (df['BsmtFin SF 2'] > 0) * 1
 input = ['BsmtFin SF 2']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return (df <= 778.667) * 1
+    return (df['Bsmt Unf SF'] <= 778.667) * 1
 input = ['Bsmt Unf SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return ((df > 778.667) & (df <= 1557.333)) * 1
+    return ((df['Bsmt Unf SF'] > 778.667) & (df['Bsmt Unf SF'] <= 1557.333)) * 1
 input = ['Bsmt Unf SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return (df > 1557.333) * 1
+    return (df['Bsmt Unf SF'] > 1557.333) * 1
 input = ['Bsmt Unf SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return (df <= 509.5) * 1
+    return (df['Total Bsmt SF'] <= 509.5) * 1
 input = ['Total Bsmt SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return ((df > 509.5) & (df <= 1019.0)) * 1
+    return ((df['Total Bsmt SF'] > 509.5) & (df['Total Bsmt SF'] <= 1019.0)) * 1
 input = ['Total Bsmt SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return ((df > 1019.0) & (df <= 1528.5)) * 1
+    return ((df['Total Bsmt SF'] > 1019.0) & (df['Total Bsmt SF'] <= 1528.5)) * 1
 input = ['Total Bsmt SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return ((df > 1528.5) & (df <= 2038.0)) * 1
+    return ((df['Total Bsmt SF'] > 1528.5) & (df['Total Bsmt SF'] <= 2038.0)) * 1
 input = ['Total Bsmt SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return ((df > 2038.0) & (df <= 2547.5)) * 1
+    return ((df['Total Bsmt SF'] > 2038.0) & (df['Total Bsmt SF'] <= 2547.5)) * 1
 input = ['Total Bsmt SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return ((df > 2547.5) & (df <= 3057.0)) * 1
+    return ((df['Total Bsmt SF'] > 2547.5) & (df['Total Bsmt SF'] <= 3057.0)) * 1
 input = ['Total Bsmt SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return ((df > 3057.0) & (df <= 3566.5)) * 1
+    return ((df['Total Bsmt SF'] > 3057.0) & (df['Total Bsmt SF'] <= 3566.5)) * 1
 input = ['Total Bsmt SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return (df > 3566.5) * 1
+    return (df['Total Bsmt SF'] > 3566.5) * 1
 input = ['Total Bsmt SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return (df <= 1127.5) * 1
+    return (df['1st Flr SF'] <= 1127.5) * 1
 input = ['1st Flr SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return ((df > 1127.5) & (df <= 1921.0)) * 1
+    return ((df['1st Flr SF'] > 1127.5) & (df['1st Flr SF'] <= 1921.0)) * 1
 input = ['1st Flr SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return ((df > 1921.0) & (df <= 2714.5)) * 1
+    return ((df['1st Flr SF'] > 1921.0) & (df['1st Flr SF'] <= 2714.5)) * 1
 input = ['1st Flr SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return ((df > 2714.5) & (df <= 3508.0)) * 1
+    return ((df['1st Flr SF'] > 2714.5) & (df['1st Flr SF'] <= 3508.0)) * 1
 input = ['1st Flr SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return ((df > 3508.0) & (df <= 4301.5)) * 1
+    return ((df['1st Flr SF'] > 3508.0) & (df['1st Flr SF'] <= 4301.5)) * 1
 input = ['1st Flr SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return (df > 4301.5) * 1
+    return (df['1st Flr SF'] > 4301.5) * 1
 input = ['1st Flr SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return (df <= 310.333) * 1
+    return (df['2nd Flr SF'] <= 310.333) * 1
 input = ['2nd Flr SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return ((df > 310.333) & (df <= 620.667)) * 1
+    return ((df['2nd Flr SF'] > 310.333) & (df['2nd Flr SF'] <= 620.667)) * 1
 input = ['2nd Flr SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return ((df > 620.667) & (df <= 931.0)) * 1
+    return ((df['2nd Flr SF'] > 620.667) & (df['2nd Flr SF'] <= 931.0)) * 1
 input = ['2nd Flr SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return ((df > 931.0) & (df <= 1241.333)) * 1
+    return ((df['2nd Flr SF'] > 931.0) & (df['2nd Flr SF'] <= 1241.333)) * 1
 input = ['2nd Flr SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return ((df > 1241.333) & (df <= 1551.667)) * 1
+    return ((df['2nd Flr SF'] > 1241.333) & (df['2nd Flr SF'] <= 1551.667)) * 1
 input = ['2nd Flr SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
 features.append(qual)
 
 def has_qual(df):
-    return (df > 1551.667) * 1
+    return (df['2nd Flr SF'] > 1551.667) * 1
 input = ['2nd Flr SF']
 transformer = ballet.eng.SimpleFunctionTransformer(func=has_qual)
 qual = Feature(input=input, transformer=transformer)
