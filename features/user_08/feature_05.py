@@ -4,7 +4,7 @@ from sklearn.preprocessing import OneHotEncoder
 
 input = ['Electrical']
 transformer = [
-    SimpleImputer(strategy='mean'),
+    SimpleImputer(strategy='most_frequent'),
     OneHotEncoder(),
 ]
 name = 'Electrical Type Fill'
