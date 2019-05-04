@@ -2,6 +2,8 @@
 
 import pathlib
 
+import click
+
 from ballet.util.code import blacken_code
 from ballet.util.fs import spliceext
 
@@ -40,8 +42,14 @@ def write_feature_content(content, handle):
     handle.write(content)
 
 
-def main():
-    for notebook in range(1, 9+1):
+@click.command()
+@click.option('--notebooks', type=str)
+def main(notebooks):
+    if notebooks is not None:
+        notebooks = list(map(int, notebooks.split(',')))
+    else:
+        notebooks = range(1, 9+1)
+    for notebook in notebooks:
         notebookpath = pathlib.Path('notebooks_features',
                 'notebook_{:02d}.py'.format(notebook))
         for i, feature_content in enumerate(
