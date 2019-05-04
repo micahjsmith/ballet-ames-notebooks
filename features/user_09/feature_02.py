@@ -7,5 +7,5 @@ transformer = [
     NullFiller(replacement='None'),
     OneHotEncoder(),
 ]
-name = 'Basement Height Fill'
+name = 'Basement height type'
 feature = Feature(input=input, transformer=transformer, name=name)

@@ -7,5 +7,5 @@ transformer = [
     NullFiller(replacement='None'),
     OneHotEncoder(),
 ]
-name = 'Basement Condition Fill'
+name = 'Basement condition type'
 feature = Feature(input=input, transformer=transformer, name=name)
