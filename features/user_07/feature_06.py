@@ -1,10 +1,9 @@
 from ballet import Feature
-from sklearn.impute import SimpleImputer
+import sklearn.impute
 
 # BsmtFinSF1, BsmtFinSF2, BsmtUnfSF, TotalBsmtSF, BsmtFullBath and BsmtHalfBath :
 # missing values are likely zero for having no basement
-
-input = ['Bsmt Full Bath']
-transformer = SimpleImputer(strategy='mean')
-name = 'Imputed basement full bathrooms'
+input = ["Bsmt Half Bath"]
+transformer = sklearn.impute.SimpleImputer(strategy="mean")
+name = "Imputed basement half bathrooms"
 feature = Feature(input=input, transformer=transformer, name=name)

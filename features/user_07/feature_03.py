@@ -6,5 +6,5 @@ from sklearn.impute import SimpleImputer
 
 input = ['Bsmt Unf SF']
 transformer = SimpleImputer(strategy='mean')
-name = 'Basement Unfinished Area Fill'
+name = 'Imputed unfinished square feet of basement area'
 feature = Feature(input=input, transformer=transformer, name=name)
