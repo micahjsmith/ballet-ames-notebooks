@@ -7,5 +7,5 @@ transformer = [
     NullFiller(replacement='None'),
     OneHotEncoder(),
 ]
-name = 'PoolQC Misc Fill'
+name = 'Pool quality type'
 feature = Feature(input=input, transformer=transformer, name=name)
