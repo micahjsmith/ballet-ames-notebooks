@@ -1,4 +1,4 @@
-# taken from https://www.kaggle.com/erikbruin/house-prices-lasso-xgboost-and-a-detailed-eda
+# taken from https://www.kaggle.com/neviadomski/how-to-get-to-top-25-with-simple-model-sklearn
 # Adapted into the ballet framework
 import ballet
 import ballet.eng
