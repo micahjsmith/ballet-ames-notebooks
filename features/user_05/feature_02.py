@@ -1,11 +1,12 @@
 from ballet import Feature
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import OneHotEncoder
+import sklearn.impute
+import sklearn.preprocessing
+
 
 input = ['MS Zoning']
 transformer = [
-    SimpleImputer(strategy='most_frequent'),
-    OneHotEncoder()
+    sklearn.impute.SimpleImputer(strategy='most_frequent'),
+    sklearn.preprocessing.OneHotEncoder()
 ]
 name = 'MS Zoning Fill'
 feature = Feature(input=input, transformer=transformer, name=name)

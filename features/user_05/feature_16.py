@@ -3,10 +3,10 @@ import ballet.eng
 import sklearn.preprocessing
 
 
-input = ['MS SubClass']
+input = ["Fireplace Qu"]
 transformer = [
-    ballet.eng.NullFiller(replacement='None'),
-    sklearn.preprocessing.OneHotEncoder()
+    ballet.eng.missing.NullFiller(replacement="NoFP"),
+    sklearn.preprocessing.OneHotEncoder(),
 ]
-name = 'MS Fill None'
+name = "Fireplace quality type"
 feature = Feature(input=input, transformer=transformer, name=name)

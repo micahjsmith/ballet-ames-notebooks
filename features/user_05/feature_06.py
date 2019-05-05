@@ -1,11 +1,12 @@
 from ballet import Feature
-import ballet.eng
+import sklearn.impute
 import sklearn.preprocessing
 
-input = ['Alley']
+
+input = ["Mas Vnr Type"]
 transformer = [
-    ballet.eng.NullFiller(replacement='NOACCESS'),
+    sklearn.impute.SimpleImputer(strategy="most_frequent"),
     sklearn.preprocessing.OneHotEncoder(),
 ]
-name = 'Alley Misc Fill'
+name = "Masonry veneer type"
 feature = Feature(input=input, transformer=transformer, name=name)

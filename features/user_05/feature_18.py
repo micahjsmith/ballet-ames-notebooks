@@ -3,10 +3,10 @@ import ballet.eng
 import sklearn.preprocessing
 
 
-input = ['MS SubClass']
+input = ["Garage Finish"]
 transformer = [
-    ballet.eng.NullFiller(replacement='None'),
-    sklearn.preprocessing.OneHotEncoder()
+    ballet.eng.missing.NullFiller(replacement="missing"),
+    sklearn.preprocessing.OneHotEncoder(),
 ]
-name = 'MS Fill None'
+name = "Garage finish type"
 feature = Feature(input=input, transformer=transformer, name=name)

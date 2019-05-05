@@ -1,7 +1,8 @@
 from ballet import Feature
-from sklearn.impute import SimpleImputer
+import sklearn.impute
+
 
 input = ['Lot Frontage']
-transformer = SimpleImputer(strategy='mean')
+transformer = sklearn.impute.SimpleImputer(strategy='mean')
 name = 'Lot Frontage Fill'
 feature = Feature(input=input, transformer=transformer, name=name)

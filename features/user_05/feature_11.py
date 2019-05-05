@@ -2,10 +2,11 @@ from ballet import Feature
 import ballet.eng
 import sklearn.preprocessing
 
-input = ['Alley']
+
+input = ["Bsmt Cond"]
 transformer = [
-    ballet.eng.NullFiller(replacement='NOACCESS'),
+    ballet.eng.missing.NullFiller(replacement="NoBsmt"),
     sklearn.preprocessing.OneHotEncoder(),
 ]
-name = 'Alley Misc Fill'
+name = "General condition of the basement type"
 feature = Feature(input=input, transformer=transformer, name=name)

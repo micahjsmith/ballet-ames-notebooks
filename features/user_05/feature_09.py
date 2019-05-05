@@ -3,10 +3,10 @@ import ballet.eng
 import sklearn.preprocessing
 
 
-input = ['MS SubClass']
+input = ["Bsmt Qual"]
 transformer = [
-    ballet.eng.NullFiller(replacement='None'),
-    sklearn.preprocessing.OneHotEncoder()
+    ballet.eng.missing.NullFiller(replacement="NoBsmt"),
+    sklearn.preprocessing.OneHotEncoder(),
 ]
-name = 'MS Fill None'
+name = "Height of the basement type"
 feature = Feature(input=input, transformer=transformer, name=name)

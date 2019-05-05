@@ -2,10 +2,11 @@ from ballet import Feature
 import ballet.eng
 import sklearn.preprocessing
 
-input = ['Alley']
+
+input = ["Exterior 2nd"]
 transformer = [
-    ballet.eng.NullFiller(replacement='NOACCESS'),
+    ballet.eng.missing.NullFiller(replacement="None"),
     sklearn.preprocessing.OneHotEncoder(),
 ]
-name = 'Alley Misc Fill'
+name = "Exterior covering on house (if more than one material) type"
 feature = Feature(input=input, transformer=transformer, name=name)
