@@ -1,10 +1,8 @@
 from ballet import Feature
-from sklearn.preprocessing import OneHotEncoder
+import sklearn.preprocessing
 
 
 input = ['Mo Sold']
-transformer = OneHotEncoder()
+transformer = sklearn.preprocessing.OneHotEncoder()
 name = 'Month Sold Categorical'
-feature = Feature(input=input,
-                  transformer=transformer,
-                  name=name)
+feature = Feature(input=input, transformer=transformer, name=name)

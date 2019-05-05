@@ -3,10 +3,10 @@ import ballet.eng
 import sklearn.preprocessing
 
 
-input = ['Heating']
+input = ["Land Contour"]
 transformer = [
-    ballet.eng.NullFiller(replacement='None'),
+    ballet.eng.missing.NullFiller(replacement="None"),
     sklearn.preprocessing.OneHotEncoder(),
 ]
-name = 'Heating Type'
+name = "Flatness of the property"
 feature = Feature(input=input, transformer=transformer, name=name)

@@ -3,10 +3,10 @@ import ballet.eng
 import sklearn.preprocessing
 
 
-input = ['Heating']
+input = ["Misc Feature"]
 transformer = [
-    ballet.eng.NullFiller(replacement='None'),
+    ballet.eng.missing.NullFiller(replacement="None"),
     sklearn.preprocessing.OneHotEncoder(),
 ]
-name = 'Heating Type'
+name = "Miscellaneous feature not covered in other categories type"
 feature = Feature(input=input, transformer=transformer, name=name)

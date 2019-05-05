@@ -3,10 +3,10 @@ import ballet.eng
 import sklearn.preprocessing
 
 
-input = ['Heating']
+input = ["Neighborhood"]
 transformer = [
-    ballet.eng.NullFiller(replacement='None'),
+    ballet.eng.missing.NullFiller(replacement="None"),
     sklearn.preprocessing.OneHotEncoder(),
 ]
-name = 'Heating Type'
+name = "Neighborhood"
 feature = Feature(input=input, transformer=transformer, name=name)

@@ -3,10 +3,10 @@ import ballet.eng
 import sklearn.preprocessing
 
 
-input = ['Heating']
+input = ["Condition 2"]
 transformer = [
-    ballet.eng.NullFiller(replacement='None'),
+    ballet.eng.missing.NullFiller(replacement="None"),
     sklearn.preprocessing.OneHotEncoder(),
 ]
-name = 'Heating Type'
+name = "Proximity to various conditions (if more than one is present)"
 feature = Feature(input=input, transformer=transformer, name=name)
