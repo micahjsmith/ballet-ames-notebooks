@@ -5,5 +5,5 @@ from sklearn.impute import SimpleImputer
 # missing values are likely zero for having no basement
 input = ['BsmtFin SF 1']
 transformer = SimpleImputer(strategy='mean')
-name = 'Basement Finished Area 1 Fill'
-mean_fill = Feature(input=input, transformer=transformer, name=name)
+name = 'Imputed basement type 1 finished square feet'
+feature = Feature(input=input, transformer=transformer, name=name)

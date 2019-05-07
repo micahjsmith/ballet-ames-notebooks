@@ -7,5 +7,5 @@ transformer = [
     NullFiller(replacement='Missing'),
     OneHotEncoder(),
 ]
-name = 'Garage Finish Fill'
+name = 'Garage finish fill'
 feature = Feature(input=input, transformer=transformer, name=name)

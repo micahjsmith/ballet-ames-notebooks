@@ -7,5 +7,5 @@ transformer = [
     NullFiller(replacement='None'),
     OneHotEncoder(),
 ]
-name = 'Basement Finished Area Type 1 Fill'
+name = 'Rating of basement finished area type'
 feature = Feature(input=input, transformer=transformer, name=name)

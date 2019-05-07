@@ -1,11 +1,12 @@
 from ballet import Feature
-from ballet.eng import NullFiller
-from sklearn.preprocessing import OneHotEncoder
+import ballet.eng
+import sklearn.preprocessing
+
 
 input = ['MS SubClass']
 transformer = [
-    NullFiller(replacement='None'),
-    OneHotEncoder()
+    ballet.eng.NullFiller(replacement='None'),
+    sklearn.preprocessing.OneHotEncoder()
 ]
 name = 'MS Fill None'
 feature = Feature(input=input, transformer=transformer, name=name)
