@@ -3,10 +3,10 @@ import ballet.eng
 import sklearn.preprocessing
 
 
-input = ["Alley"]
+input = ["Central Air"]
 transformer = [
     ballet.eng.missing.NullFiller(replacement="None"),
     sklearn.preprocessing.OneHotEncoder(),
 ]
-name = "Alley type"
+name = "Central Air type"
 feature = Feature(input=input, transformer=transformer, name=name)
