@@ -9,4 +9,4 @@ transformer = [
     sklearn.preprocessing.OneHotEncoder(),
 ]
 name = "Flatness of the property type"
-misc_fill = Feature(input=input, transformer=transformer)
+feature = Feature(input=input, transformer=transformer)

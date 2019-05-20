@@ -1,8 +1,9 @@
 from ballet import Feature
 import ballet.eng
+import pandas as pd
 
 input = ["Garage Cars"]
 
 transformer = ballet.eng.missing.NullFiller(isnull=pd.isnull)
 
-misc_fill = Feature(input=input, transformer=transformer)
+feature = Feature(input=input, transformer=transformer)

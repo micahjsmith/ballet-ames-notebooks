@@ -11,4 +11,4 @@ def calc_age(df):
 
 transformer = ballet.eng.SimpleFunctionTransformer(func=calc_age)
 name = "Age"
-age = Feature(input=input, transformer=transformer, name="Age")
+feature = Feature(input=input, transformer=transformer, name=name)

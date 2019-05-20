@@ -1,4 +1,5 @@
 from ballet import Feature
+import ballet.eng
 import sklearn.impute
 import sklearn.preprocessing
 

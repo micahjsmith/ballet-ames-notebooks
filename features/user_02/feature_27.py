@@ -3,16 +3,14 @@ import ballet.eng
 import sklearn.preprocessing
 
 
-input = ["Bsmt Cond", "BsmtQual", "BsmtExposure",
-         "BsmtFinType1", "BsmtFinType2"]
+input = ["Bsmt Cond", "BsmtQual", "BsmtExposure", "BsmtFinType1", "BsmtFinType2"]
 
 
 def impute_mode(df):
-    result = df['Bsmt Cond'].copy()
-    mask = (df['Bsmt Cond'].isnull()
-            & df.drop('Bsmt Cond', axis=1).notnull().any(axis=1))
+    result = df["Bsmt Cond"].copy()
+    mask = df["Bsmt Cond"].isnull() & df.drop("Bsmt Cond", axis=1).notnull().any(axis=1)
     mask_not_null = result.notnull()
-    result.[mask] = result[mask_not_null].mode()
+    result[mask] = result[mask_not_null].mode()
     return result
 
 

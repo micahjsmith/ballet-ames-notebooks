@@ -11,4 +11,4 @@ transformer = [
 
 name = "Fence type"
 
-misc_fill = Feature(input=input, transformer=transformer, name=name)
+feature = Feature(input=input, transformer=transformer, name=name)
