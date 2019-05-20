@@ -1,16 +1,12 @@
 from ballet import Feature
-from ballet.eng.missing import NullFiller
-from sklearn.preprocessing import OneHotEncoder
+import ballet.eng
+import sklearn.preprocessing
 
-# PoolQC : data description says NA means "No Pool".
-# That make sense, given the huge ratio of missing value (+99%)
-# and majority of houses have no Pool at all in general.
-input = ['Pool QC']
+
+input = ["Street"]
 transformer = [
-    NullFiller(replacement='None'),
-    OneHotEncoder(),
+    ballet.eng.missing.NullFiller(replacement="None"),
+    sklearn.preprocessing.OneHotEncoder(),
 ]
-name = 'Pool Type'
-feature = Feature(input=input,
-                  transformer=transformer,
-                  name=name)
+name = "Street type"
+feature = Feature(input=input, transformer=transformer, name=name)

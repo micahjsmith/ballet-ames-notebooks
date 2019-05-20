@@ -1,19 +1,12 @@
 from ballet import Feature
-from ballet.eng import GroupwiseTransformer, SimpleFunctionTransformer
-from sklearn.impute import SimpleImputer
+import ballet.eng
+import sklearn.preprocessing
 
 
-input = ['Lot Frontage', 'Neighborhood']
+input = ["MS Zoning"]
 transformer = [
-    SimpleFunctionTransformer(lambda df: df.set_index('Neighborhood',
-                                                      append=True)),
-    GroupwiseTransformer(
-        SimpleImputer(strategy='median'),
-        groupby_kwargs={'level': 'Neighborhood'},
-        handle_error='ignore',
-    ),
-    SimpleImputer(strategy='median'),
+    ballet.eng.missing.NullFiller(replacement="None"),
+    sklearn.preprocessing.OneHotEncoder(),
 ]
-feature = Feature(input=input,
-                  transformer=transformer,
-                  name='Imputed Lot Frontage')
+name = "MS Zoning type"
+feature = Feature(input=input, transformer=transformer, name=name)

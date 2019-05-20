@@ -3,7 +3,6 @@ from ballet import Feature
 from ballet.eng import SimpleFunctionTransformer
 from sklearn.preprocessing import OneHotEncoder
 
-input = ['Enclosed Porch', '3Ssn Porch', 'Open Porch SF']
 
 
 def calc_porch_type(df):
@@ -19,11 +18,10 @@ def calc_porch_type(df):
     return porch_type
 
 
+input = ['Enclosed Porch', '3Ssn Porch', 'Open Porch SF']
 transformer = [
     SimpleFunctionTransformer(calc_porch_type),
     OneHotEncoder(),
 ]
-
 name = 'Computed Porch Type'
-
 feature = Feature(input=input, transformer=transformer, name=name)

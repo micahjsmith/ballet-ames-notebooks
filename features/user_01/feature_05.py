@@ -1,13 +1,12 @@
 from ballet import Feature
-from ballet.eng import NullFiller
-from sklearn.preprocessing import OneHotEncoder
+import ballet.eng
+import sklearn.preprocessing
 
-input = ['Fence']
+
+input = ["Land Contour"]
 transformer = [
-    NullFiller(replacement='None'),
-    OneHotEncoder(),
+    ballet.eng.missing.NullFiller(replacement="None"),
+    sklearn.preprocessing.OneHotEncoder(),
 ]
-name = 'Fence Type'
-feature = Feature(input=input,
-                  transformer=transformer,
-                  name=name)
+name = "Land Contour type"
+feature = Feature(input=input, transformer=transformer, name=name)
